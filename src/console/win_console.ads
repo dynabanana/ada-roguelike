@@ -1,6 +1,8 @@
--- if not using GNAT, the interfacing aspect:
--- Convention => C
+-- if not using GNAT, the interfacing aspect: Convention => C
 -- should be added to all of the imported objects in this file
+
+-- this file only imports objects from the win32 console API.
+-- console_size.ads/adb encapsulate these resources into a single
 with Interfaces;
 with Win_Types ; use Win_Types;
 
