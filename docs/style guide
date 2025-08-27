@@ -1,0 +1,29 @@
+## Line Breaks and Whitespace
+
+- There's no need to arbitrarily pursue short lines of code or text. Long lines are fine. Don't arbitrarily shorten names just to make line lengths shorter.
+
+- Long statements should go on their own line.
+
+- Very short, tightly related statements can go on the same line. For example, the statement pair: `with Ada.Text_IO; use Ada.Text_IO;` can be written on one line.
+
+- No maximum line length for most lines. Just led the display software line-wrap long comments and statements.
+
+- With a longer function call or definition, break up the arguments into their own lines if the call runs over the Ada standard max (72 characters). But if an individual argument runs over 72 chars then don't break it any further.
+
+- Multi-argument `with` statements, `case` statements, and `record` definitions should put each of their individual arguments on separate lines.
+
+- Single-argument calls and `with` statements should stay on one line.
+
+- Try to align the operator of related assignments done in sequence. e.g:
+```Ada
+record
+    dwSize              : COORD;
+    dwCursorPosition    : COORD;
+    wAttributes         : WORD;
+    srWindow            : SMALL_RECT;
+    dwMaximumWindowSize : COORD;
+end record;
+```
+
+- Use two spaces after each comment delimiter. e.g:
+--  this is an Ada comment
