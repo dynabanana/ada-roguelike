@@ -9,5 +9,15 @@ begin
    dimensions := Console.Size;
    Ada.Text_IO.Put_Line ("width: " & dimensions.width'Image);
    Ada.Text_IO.Put_Line ("height: " & dimensions.height'Image);
+
+   declare
+      I : Win_Types.SHORT := 0;
+      width: Win_Types.SHORT := dimensions.width;
+   begin
+      while I < width loop
+         Ada.Text_IO.Put ('#');
+         I := I + 1;
+      end loop;
+   end;
    
 end Main;
