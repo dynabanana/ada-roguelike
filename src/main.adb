@@ -11,8 +11,8 @@ begin
    Ada.Text_IO.Put_Line ("height: " & dimensions.height'Image);
 
    declare
-      I : Win_Types.SHORT := 0;
-      width: Win_Types.SHORT := dimensions.width;
+      I     : Win_Types.SHORT := 0;
+      width : Win_Types.SHORT := dimensions.width;
    begin
       while I < width loop
          Ada.Text_IO.Put ('#');
