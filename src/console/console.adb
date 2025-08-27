@@ -1,4 +1,3 @@
-with Win_Console;
 package body Console is
 
    function Size return Console_Dimensions is
