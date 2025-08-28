@@ -10,8 +10,8 @@ package body Console is
 
          Win_Console.GetConsoleScreenBufferInfo (console_handle, ref_csbi);
 
-         dimensions.width  := ref_csbi.srWindow.Right - ref_csbi.srWindow.Left + 1;
-         dimensions.height := ref_csbi.srWindow.Bottom - ref_csbi.srWindow.Top + 1;
+         dimensions.width  := Integer(ref_csbi.srWindow.Right - ref_csbi.srWindow.Left + 1);
+         dimensions.height := Integer(ref_csbi.srWindow.Bottom - ref_csbi.srWindow.Top + 1);
       return dimensions;
    end Size;
 end Console;

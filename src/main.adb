@@ -1,5 +1,4 @@
 with Ada.Text_IO;
-with Win_Types; use type Win_Types.SHORT;
 with Console; use type Console.Console_Dimensions;
 
 procedure Main is
@@ -11,8 +10,8 @@ begin
    Ada.Text_IO.Put_Line ("height: " & dimensions.height'Image);
 
    declare
-      I     : Win_Types.SHORT := 0;
-      width : Win_Types.SHORT := dimensions.width;
+      I     : Integer := 0;
+      width : Integer := dimensions.width;
    begin
       while I < width loop
          Ada.Text_IO.Put ('#');
