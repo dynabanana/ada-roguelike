@@ -20,15 +20,6 @@ package body Console.Graphics is
 
    procedure Render_Opening_Menu (Buff : Char_Buffer_Ptr) is
    begin
-      --     for I in Buff.all'Range (2) loop
-      --        Buff (Buff.all'First (1), I) := '#';
-      --        Buff (Buff.all'Last (1), I)  := '#';
-      --     end loop;
-
-      --     for I in Buff.all'Range (1) loop
-      --        Buff (I, Buff.all'First (2)) := '#';
-      --        Buff (I, Buff.all'Last (2))  := '#';
-      --     end loop;
       null;
    end Render_Opening_Menu;
 
@@ -54,8 +45,8 @@ package body Console.Graphics is
 
       Ada.Text_IO.Put_Line (ESC & "[2J");
 
-      for Row in Screen_Buffer.all'Range (1) loop
-         for Col in Screen_Buffer.all'Range (2) loop
+      for Row in Screen_Buffer'Range (1) loop
+         for Col in Screen_Buffer'Range (2) loop
             Ada.Text_IO.Put (Screen_Buffer (Row, Col));
          end loop;
          Ada.Text_IO.Put_Line ("");
