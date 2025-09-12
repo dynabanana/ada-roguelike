@@ -15,3 +15,5 @@ not sure yet if console and display should be grouped differently. don't see a r
 display function should be in its own thread/process so that rendering happens while inputs are being processed
 
 may be good for input to also be in its own thread so that inputs may buffer behind a semaphor, creating an input buffer (buffer should have input+time so that main can discard outdated inputs)
+
+state folder should contain all definitions used to represent game and menu data

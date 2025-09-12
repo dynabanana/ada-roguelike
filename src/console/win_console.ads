@@ -3,7 +3,7 @@
 --  This file imports definitions from the win32 console API which are used in the Console package.
 with Interfaces;
 with Win_Types ; use Win_Types;
-
+with Ada.Text_IO;
 package Win_Console is
 
    type Console_Screen_Buffer_Info is
@@ -14,7 +14,6 @@ package Win_Console is
          srWindow            : SMALL_RECT;
          dwMaximumWindowSize : COORD;
       end record;
-   
    type Console_Handle is new HANDLE;
 
    procedure GetConsoleScreenBufferInfo

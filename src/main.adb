@@ -1,22 +1,13 @@
-with Ada.Text_IO;
-with Console; use type Console.Console_Dimensions;
-
+with Console.Graphics;
+with Game_Modes; use Game_Modes;
+with Console.Screen;
 procedure Main is
-   dimensions : Console.Console_Dimensions;
+   Mode : Game_Mode := Opening_Menu;
 begin
-
-   dimensions := Console.Size;
-   Ada.Text_IO.Put_Line ("width: " & dimensions.width'Image);
-   Ada.Text_IO.Put_Line ("height: " & dimensions.height'Image);
-
-   declare
-      I     : Integer := 0;
-      width : Integer := dimensions.width;
-   begin
-      while I < width loop
-         Ada.Text_IO.Put ('#');
-         I := I + 1;
-      end loop;
-   end;
    
+   -- Create buffer to hold characters displayed on screen. See console/README.MD
+   Console.Graphics.Make_Buffer(Console.Screen.Get_Size);
+   Console.Graphics.Draw (Mode);
+
+   Console.Graphics.Cleanup;
 end Main;
