@@ -13,9 +13,9 @@ package body Console.Screen is
 
       Win_Console.GetConsoleScreenBufferInfo (console_handle, ref_csbi);
 
-      dimensions.width :=
+      dimensions.Width :=
         Integer (ref_csbi.srWindow.Right - ref_csbi.srWindow.Left + 1);
-      dimensions.height :=
+      dimensions.Height :=
         Integer (ref_csbi.srWindow.Bottom - ref_csbi.srWindow.Top + 1);
       return dimensions;
    end Get_Size;

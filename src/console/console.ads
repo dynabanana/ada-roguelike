@@ -1,7 +1,7 @@
 package Console is
 
    type Console_Dimensions is record
-      width  : Integer;
-      height : Integer;
+      Width  : Integer;
+      Height : Integer;
    end record;
 end Console;
