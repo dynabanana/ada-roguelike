@@ -8,7 +8,7 @@
 
 - No maximum line length for most lines. Just led the display software line-wrap long comments and statements.
 
-- With a longer function call or definition, break up the arguments into their own lines if the call runs over the Ada standard max (72 characters). But if an individual argument runs over 72 chars then don't break it any further.
+- With a longer function call or definition, break up the arguments into their own (indented) lines if the call runs over the Ada standard max (72 characters). But if an individual argument runs over 72 chars then don't break it any further.
 
 - Multi-argument `with` statements, `case` statements, and `record` definitions should put each of their individual arguments on separate lines.
 
@@ -27,3 +27,13 @@ end record;
 
 - Use two spaces after each comment delimiter. e.g:
 --  this is an Ada comment
+
+For a sequence of repeated calls, try to align their parameters on the right; e.g:
+Options : constant array (1 .. 4) of Unbounded_String := [
+    To_Unbounded_String  ("New Game"),
+    To_Unbounded_String ("Load Game"),
+    To_Unbounded_String  ("Settings"),
+    To_Unbounded_String ("Exit Game")
+];
+
+- Also do this for repeated string concatenations

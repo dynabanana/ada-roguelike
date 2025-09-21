@@ -1,28 +1,25 @@
-with Game_Modes; use Game_Modes;
+with Game_Modes;
+with Opening_Settings;
 package Console.Graphics is
 
-   type Char_Buffer is array (Integer range <>, Integer range <>) of Character;
-   type Char_Buffer_Ptr is access Char_Buffer;
+   --  Calls one of the below functions to fill the screen buffer, and then draws its contents to the console device. The screen that gets rendered depends on the state of the program. Internal persistent state in Console.Graphics should be managed by Draw and its overloaded functions.
+   procedure Draw (Mode : in Game_Modes.Virtual_Mode);
 
-   --  Queries whether the internal character buffer has been generated
-   function Buffer_Exists return Boolean;
+   --  Draw the opening menu
+   procedure Draw (
+         Cursor : in Opening_Settings.Opening_Option
+   );
 
-   procedure Make_Buffer (Dimensions : Console_Dimensions) with
-      Pre  => not Buffer_Exists,
-      Post => Buffer_Exists;
+   --  Expects the output from Console.Screen.Get_Size. Saves it into the module's internal state to be read by the render functions.
+   procedure Set_Dimensions(Size : in Console_Dimensions);
 
-   --  Calls one of the below functions to fill the screen buffer, and then draws its contents to the console device.
-   procedure Draw (Mode : in Game_Modes.Game_Mode)
-      with Pre => Buffer_Exists;
-
-
-   procedure Cleanup
-      with Pre => Buffer_Exists;
+   --  Deallocates module heap memory. For now this function does nothing 
+   procedure Cleanup;
 
    private
 
    --  Each of these functions populate the screen buffer with visual information about the game state. The logic of what should be drawn on screen goes in here.
-   procedure Render_Opening_Menu (Buff : Char_Buffer_Ptr);
-   procedure Render_Overworld    (Buff : Char_Buffer_Ptr);
-   procedure Render_Inventory    (Buff : Char_Buffer_Ptr);
+   procedure Render_Opening_Menu (Cursor : Opening_Settings.Opening_Option);
+   procedure Render_Overworld;
+   procedure Render_Inventory;
 end Console.Graphics;
